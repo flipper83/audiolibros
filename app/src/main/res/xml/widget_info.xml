@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Queremos un widget de 2x2 por lo que la ecuación es:
+    dimensiones 70* número de celdas - 30 = 70*2-30=110dp de alto y ancho
+-->
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minHeight="110dp"
+    android:minWidth="110dp"
+    android:minResizeWidth="40dp"
+    android:minResizeHeight="40dp"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/widget"
+    android:previewImage="@mipmap/ic_launcher"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen"
+    android:configure="com.example.audiolibros.ConfiguraWidget">
+</appwidget-provider>
