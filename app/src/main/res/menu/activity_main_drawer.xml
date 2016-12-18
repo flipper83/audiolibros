@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_todos"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Todos los géneros" />
+        <item
+            android:id="@+id/nav_epico"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Poema épico" />
+        <item
+            android:id="@+id/nav_XIX"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Literatura siglo XIX" />
+        <item
+            android:id="@+id/nav_suspense"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="Suspense" />
+    </group>
+    <item android:title="Acciones adicionales">
+        <menu>
+            <item
+                android:id="@+id/nav_preferencias"
+                android:icon="@android:drawable/ic_menu_manage"
+                android:title="Preferencias" />
+            <item
+                android:id="@+id/nav_compartir"
+                android:icon="@android:drawable/ic_menu_share"
+                android:title="Compartir" />
+        </menu>
+    </item>
+</menu>

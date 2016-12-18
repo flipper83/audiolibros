@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ZoomSeekBar">
+        <attr name="altoNumeros" format="dimension" />
+        <attr name="altoRegla" format="dimension" />
+        <attr name="altoBar" format="dimension" />
+        <attr name="altoPalanca" format="dimension" />
+        <attr name="altoGuia" format="dimension" />
+        <attr name="anchoPalanca" format="dimension" />
+        <attr name="altoTexto" format="dimension" />
+        <attr name="colorTexto" format="color" />
+        <attr name="colorRegla" format="color" />
+        <attr name="colorPalanca" format="color" />
+        <attr name="colorGuia" format="color" />
+
+        <attr name="val" format="integer" />
+        <attr name="valMin" format="integer" />
+        <attr name="valMax" format="integer" />
+        <attr name="escalaMin" format="integer" />
+        <attr name="escalaMax" format="integer" />
+        <attr name="escalaIni" format="integer" />
+        <attr name="escalaRaya" format="integer" />
+        <attr name="escalaRayaLarga" format="integer" />
+    </declare-styleable>
+
+</resources>
