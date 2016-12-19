@@ -23,6 +23,15 @@ public class AdaptadorLibrosFiltro extends AdaptadorLibros {
         recalculaFiltro();
     }
 
+    public void reset() {
+        busqueda = "";
+        genero = "";
+        novedad = false;
+        leido = false;
+        recalculaFiltro();
+        notifyDataSetChanged();
+    }
+
     public void setBusqueda(String busqueda) {
         this.busqueda = busqueda.toLowerCase();
         recalculaFiltro();

@@ -17,6 +17,7 @@ public class Aplicacion extends Application {
         super.onCreate();
         vectorLibros = Libro.ejemploLibros();
         adaptador = new AdaptadorLibrosFiltro(this, vectorLibros);
+        adaptador.reset();
     }
 
     public AdaptadorLibrosFiltro getAdaptador() {
