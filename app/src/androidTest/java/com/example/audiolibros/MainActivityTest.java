@@ -7,9 +7,12 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import org.junit.Before;
+import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import io.victoralbertos.device_animation_test_rule.DeviceAnimationTestRule;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -26,6 +29,9 @@ public class MainActivityTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class, false, false);
+
+    @ClassRule static public DeviceAnimationTestRule
+            deviceAnimationTestRule = new DeviceAnimationTestRule();
 
     @Before
     public void setUp() {
@@ -53,6 +59,15 @@ public class MainActivityTest {
 
         clickOnTab("Leidos");
         assertBookName("Viejo Pancho, El");
+    }
+
+    @Test
+    public void shouldOpenDetailScreenWhenClickOnARow() {
+        startActivity();
+
+        onView(childAtPosition(withId(R.id.recycler_view), 0)).perform(click());
+
+        onView(withId(R.id.titulo)).check(matches(withText("Kappa")));
     }
 
     private void startActivity() {

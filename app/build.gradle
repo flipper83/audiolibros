@@ -6,10 +6,11 @@ android {
 
     defaultConfig {
         applicationId "com.example.audiolibros"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
@@ -28,7 +29,19 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:preference-v14:23.1.1'
     compile 'com.android.support:palette-v7:23.1.1'
+
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.1') {
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-v4'
+    }
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.1')
+    androidTestCompile 'com.github.VictorAlbertos:DeviceAnimationTestRule:0.0.2'
+
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:25.0.0'
     }
 }

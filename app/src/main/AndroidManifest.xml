@@ -3,6 +3,7 @@
     package="com.example.audiolibros">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.SET_ANIMATION_SCALE"/>
     <application
         android:name="com.example.audiolibros.Aplicacion"
         android:allowBackup="true"
