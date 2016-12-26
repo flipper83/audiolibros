@@ -34,22 +34,28 @@ public class MainActivityTest {
 
     @Test
     public void shouldShowAnyBooksWhenOpenTheMainActivity() {
-
-        mActivityTestRule.launchActivity(new Intent());
-        mActivityTestRule.getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Aplicacion application = (Aplicacion) mActivityTestRule.getActivity().getApplication();
-                application.getAdaptador().reset();
-            }
-        });
+        startActivity();
 
         assertBookName("Kappa");
     }
 
     @Test
     public void shouldShowNewBooksWhenClickInNewTab() {
+        startActivity();
 
+        clickOnTab("Nuevos");
+        assertBookName("Avecilla");
+    }
+
+    @Test
+    public void shouldShowReadedBooksWhenClickInNewTab() {
+        startActivity();
+
+        clickOnTab("Leidos");
+        assertBookName("Viejo Pancho, El");
+    }
+
+    private void startActivity() {
         mActivityTestRule.launchActivity(new Intent());
         mActivityTestRule.getActivity().runOnUiThread(new Runnable() {
             @Override
@@ -58,9 +64,6 @@ public class MainActivityTest {
                 application.getAdaptador().reset();
             }
         });
-
-        clickOnTab("Nuevos");
-        assertBookName("Avecilla");
     }
 
     private void assertBookName(String bookName) {
