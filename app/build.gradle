@@ -38,7 +38,7 @@ dependencies {
         exclude module: 'recyclerview-v7'
         exclude module: 'support-v4'
     }
-    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2.1')
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
     androidTestCompile 'com.github.VictorAlbertos:DeviceAnimationTestRule:0.0.2'
 
     configurations.all {

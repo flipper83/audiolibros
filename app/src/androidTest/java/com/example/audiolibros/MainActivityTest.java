@@ -2,7 +2,7 @@ package com.example.audiolibros;
 
 import android.content.Intent;
 import android.support.test.espresso.ViewInteraction;
-import android.support.test.rule.ActivityTestRule;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
@@ -19,6 +19,8 @@ import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -32,7 +34,8 @@ import static org.hamcrest.Matchers.allOf;
 public class MainActivityTest {
 
     @Rule
-    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class, false, false);
+    public IntentsTestRule<MainActivity> mActivityTestRule = new IntentsTestRule<>(MainActivity.class,
+            false, false);
 
     @ClassRule static public DeviceAnimationTestRule
             deviceAnimationTestRule = new DeviceAnimationTestRule();
@@ -81,7 +84,17 @@ public class MainActivityTest {
         writeOnSearch("Kappa");
 
         assertBookName("Kappa");
+    }
 
+    @Test
+    public void shouldOpenPreferencesWhenClickOnPreferencesButton() {
+        startActivity();
+
+        ViewInteraction actionMenuItemView = onView(
+                allOf(withId(R.id.menu_preferencias), withContentDescription("Preferencias"), isDisplayed()));
+        actionMenuItemView.perform(click());
+
+        intended(hasComponent(PreferenciasActivity.class.getCanonicalName()));
     }
 
     private void writeOnSearch(String textToSearch) {
