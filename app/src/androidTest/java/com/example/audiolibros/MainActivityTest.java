@@ -32,7 +32,6 @@ import static org.hamcrest.Matchers.allOf;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
-
     @Rule
     public IntentsTestRule<MainActivity> mActivityTestRule = new IntentsTestRule<>(MainActivity.class,
             false, false);
@@ -47,6 +46,7 @@ public class MainActivityTest {
 
     @Test
     public void shouldShowAnyBooksWhenOpenTheMainActivity() {
+
         startActivity();
 
         assertBookName("Kappa");
