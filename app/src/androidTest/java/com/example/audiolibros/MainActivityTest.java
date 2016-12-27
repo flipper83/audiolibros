@@ -97,6 +97,51 @@ public class MainActivityTest {
         intended(hasComponent(PreferenciasActivity.class.getCanonicalName()));
     }
 
+    @Test
+    public void shouldShowEpicBooksWhenClickOnEpicOptionDrawer() {
+        startActivity();
+
+        openNavigationDrawer();
+        clickOnOption("Poema épico");
+
+        assertBookName("Divina Comedia");
+    }
+
+    @Test
+    public void shouldShowXIXBooksWhenClickOnXIXOptionDrawer() {
+        startActivity();
+
+        openNavigationDrawer();
+        clickOnOption("Literatura siglo XIX");
+
+        assertBookName("Kappa");
+    }
+
+    @Test
+    public void shouldShowXIXThrillerWhenClickOnThrillerOptionDrawer() {
+        startActivity();
+
+        openNavigationDrawer();
+        clickOnOption("Suspense");
+
+        assertBookName("Matrimonio de sabuesos");
+    }
+
+    private void clickOnOption(String optionText) {
+        ViewInteraction appCompatCheckedTextView = onView(
+                allOf(withId(R.id.design_menu_item_text), withText(optionText), isDisplayed()));
+        appCompatCheckedTextView.perform(click());
+    }
+
+    private void openNavigationDrawer() {
+        ViewInteraction imageButton = onView(
+                allOf(withContentDescription("navigation drawer abierto"),
+                        withParent(allOf(withId(R.id.toolbar),
+                                withParent(withId(R.id.collapsing)))),
+                        isDisplayed()));
+        imageButton.perform(click());
+    }
+
     private void writeOnSearch(String textToSearch) {
         ViewInteraction actionMenuItemView = onView(
                 allOf(withId(R.id.menu_buscar), withContentDescription("Buscar"), isDisplayed()));
