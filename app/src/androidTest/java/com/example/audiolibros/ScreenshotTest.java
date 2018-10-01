@@ -18,19 +18,33 @@ package com.example.audiolibros;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import com.facebook.testing.screenshot.Screenshot;
 import com.facebook.testing.screenshot.ViewHelpers;
+import java.util.Vector;
+import org.junit.Before;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 
 public class ScreenshotTest {
 
+  @Before public void setUp() {
+    Libro.resetToInitialValues();
+    ((Aplicacion) getInstrumentation().getTargetContext().getApplicationContext()).updateGraph();
+  }
+
+  void setEjemploLibros(Vector<Libro> libros) {
+    Libro.setEjemploLibros(libros);
+    ((Aplicacion) getInstrumentation().getTargetContext().getApplicationContext()).updateGraph();
+  }
+
   protected void compareScreenshot(Activity activity) {
-    Screenshot.snapActivity(activity).record();
+    Screenshot.snapActivity(activity)
+        .record();
   }
 
   protected void compareScreenshot(RecyclerView.ViewHolder holder, int height) {
@@ -41,11 +55,14 @@ public class ScreenshotTest {
     Context context = getInstrumentation().getTargetContext();
     WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
     DisplayMetrics metrics = new DisplayMetrics();
-    windowManager.getDefaultDisplay().getMetrics(metrics);
+    windowManager.getDefaultDisplay()
+        .getMetrics(metrics);
     ViewHelpers.setupView(view)
-        .setExactHeightPx(context.getResources().getDimensionPixelSize(height))
+        .setExactHeightPx(context.getResources()
+            .getDimensionPixelSize(height))
         .setExactWidthPx(metrics.widthPixels)
         .layout();
-    Screenshot.snap(view).record();
+    Screenshot.snap(view)
+        .record();
   }
 }

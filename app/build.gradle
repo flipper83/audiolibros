@@ -42,6 +42,10 @@ dependencies {
   androidTestImplementation('com.github.tmurakami:dexopener:0.12.0') {
     exclude group: 'com.android.support.test', module: 'runner'
   }
+
+  androidTestImplementation('com.schibsted.spain:barista:2.7.0') {
+    exclude group: 'com.android.support'
+  }
 }
 repositories {
   mavenCentral()

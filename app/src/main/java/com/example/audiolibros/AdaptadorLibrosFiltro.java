@@ -3,6 +3,7 @@ package com.example.audiolibros;
 import android.content.Context;
 
 import java.util.Vector;
+import org.jetbrains.annotations.TestOnly;
 
 /**
  * Created by Jesús Tomás on 27/01/2016.
@@ -74,6 +75,13 @@ public class AdaptadorLibrosFiltro extends AdaptadorLibros {
 
     public void insertar(Libro libro){
         vectorSinFiltro.add(0,libro);
+        recalculaFiltro();
+    }
+
+    @TestOnly
+
+    public void setLibros(Vector<Libro> libros) {
+        vectorSinFiltro = libros;
         recalculaFiltro();
     }
 }
