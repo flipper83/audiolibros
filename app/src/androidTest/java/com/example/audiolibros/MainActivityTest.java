@@ -20,7 +20,7 @@ public class MainActivityTest extends ScreenshotTest {
     "Akutagawa",
     R.drawable.kappa,
     "any server",
-    Libro.G_S_XIX,
+    Libro.CATEGORY_XIX,
     false,
     false);
 
@@ -29,7 +29,7 @@ public class MainActivityTest extends ScreenshotTest {
     "Alas Clarín, Leopoldo",
     R.drawable.avecilla,
     "any server",
-    Libro.G_S_XIX,
+    Libro.CATEGORY_XIX,
     true,
     false);
 

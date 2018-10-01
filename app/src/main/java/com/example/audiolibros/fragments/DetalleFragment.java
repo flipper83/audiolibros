@@ -1,7 +1,5 @@
 package com.example.audiolibros.fragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -12,15 +10,12 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.audiolibros.Aplicacion;
 import com.example.audiolibros.Libro;
@@ -46,8 +41,16 @@ public class DetalleFragment extends Fragment implements
     private Libro libro;
     private int puntoReproduccion = 0;
 
+  public static DetalleFragment create(int id) {
+    DetalleFragment detailFrament = new DetalleFragment();
+    Bundle args = new Bundle();
+    args.putInt(DetalleFragment.ARG_ID_LIBRO, id);
+    detailFrament.setArguments(args);
+    return detailFrament;
+  }
 
-    @Override public View onCreateView(LayoutInflater inflador, ViewGroup
+
+  @Override public View onCreateView(LayoutInflater inflador, ViewGroup
             contenedor, Bundle savedInstanceState) {
         View vista = inflador.inflate(R.layout.fragment_detalle,
                 contenedor, false);
@@ -249,7 +252,7 @@ public class DetalleFragment extends Fragment implements
 
             Toast.makeText(getActivity(), "NO MOstrar" , Toast.LENGTH_LONG).show();
 
-            ((MainActivity) getActivity()).mostrarElementos(false);
+            ((MainActivity) getActivity()).showDrawer(false);
         }
     }*/
 
@@ -263,7 +266,7 @@ public class DetalleFragment extends Fragment implements
 
             Toast.makeText(getActivity(), "NO MOstrar" , Toast.LENGTH_LONG).show();
 
-            ((MainActivity) getActivity()).mostrarElementos(false);
+            ((MainActivity) getActivity()).showDrawer(false);
         }
     }*/
 
@@ -289,7 +292,7 @@ public class DetalleFragment extends Fragment implements
                 getFragmentManager().findFragmentById(R.id.detalle_fragment);
         if (detalleFragment == null ) {
             //Toast.makeText(getActivity(), "NO MOstrar" , Toast.LENGTH_LONG).show();
-            ((MainActivity) getActivity()).mostrarElementos(false);
+            ((MainActivity) getActivity()).showDrawer(false);
         }
         if (mediaPlayer != null) {
             mediaPlayer.release();

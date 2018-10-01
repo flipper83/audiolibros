@@ -1,8 +1,6 @@
 package com.example.audiolibros.fragments;
 
 import android.app.Activity;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,9 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.audiolibros.AdaptadorLibros;
 import com.example.audiolibros.AdaptadorLibrosFiltro;
 import com.example.audiolibros.Aplicacion;
 import com.example.audiolibros.Libro;
@@ -52,7 +48,7 @@ public class SelectorFragment extends Fragment {
 
     @Override
     public void onResume() {
-        ((MainActivity) getActivity()).mostrarElementos(true);
+        ((MainActivity) getActivity()).showDrawer(true);
         super.onResume();
     }
 
@@ -79,7 +75,7 @@ public class SelectorFragment extends Fragment {
                 //Toast.makeText(actividad, "Seleccionado el elemento: "
                 //                + recyclerView.getChildAdapterPosition(v),
                 //        Toast.LENGTH_SHORT).show();
-                ((MainActivity) actividad).mostrarDetalle(
+                ((MainActivity) actividad).showDetail(
                         (int) adaptador.getItemId(
                                 recyclerView.getChildAdapterPosition(v)));
 
@@ -186,7 +182,7 @@ public class SelectorFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_ultimo) {
-            ((MainActivity) actividad).irUltimoVisitado();
+            ((MainActivity) actividad).openLastVisit();
             return true;
         } else if (id == R.id.menu_buscar) {
             return true;

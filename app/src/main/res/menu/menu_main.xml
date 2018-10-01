@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.audiolibros.MainActivity">
     <item
-        android:id="@+id/menu_preferencias"
+        android:id="@+id/menu_prefs"
         android:icon="@android:drawable/ic_menu_preferences"
         android:orderInCategory="95"
         app:showAsAction="ifRoom"
         android:title="Preferencias"/>
     <item
-        android:id="@+id/menu_acerca"
+        android:id="@+id/about_menu"
         android:orderInCategory="110"
         app:showAsAction="never"
         android:title="Acerca de..."/>

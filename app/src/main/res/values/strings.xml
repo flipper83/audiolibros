@@ -3,4 +3,10 @@
     <string name="action_settings">Settings</string>
     <string name="drawer_open">navigation drawer abierto</string>
     <string name="drawer_close">navigation drawer cerrado</string>
+    <string name="tab_title_all">Todos</string>
+    <string name="tab_title_new">Nuevos</string>
+    <string name="tab_title_read">Leidos</string>
+    <string name="about_dialog_description">Mensaje de Acerca De</string>
+    <string name="no_last_visit_message">
+        Sin última vista</string>
 </resources>
