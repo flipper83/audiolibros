@@ -2,7 +2,6 @@ package com.example.audiolibros;
 
 import android.app.Application;
 
-import android.content.Context;
 import java.util.Vector;
 import org.jetbrains.annotations.TestOnly;
 
@@ -12,17 +11,17 @@ import org.jetbrains.annotations.TestOnly;
 public class Aplicacion extends Application {
 
     private Vector<Libro> vectorLibros;
-    private AdaptadorLibrosFiltro adaptador;
+    private FilterBookAdapter adaptador;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
         vectorLibros = Libro.ejemploLibros();
-        adaptador = new AdaptadorLibrosFiltro(this, vectorLibros);
+        adaptador = new FilterBookAdapter(this, vectorLibros);
     }
 
-    public AdaptadorLibrosFiltro getAdaptador() {
+    public FilterBookAdapter getAdaptador() {
         return adaptador;
     }
 

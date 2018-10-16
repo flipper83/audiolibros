@@ -9,7 +9,7 @@ import java.util.Vector;
 /**
  * Created by Jesús Tomás on 27/01/2016.
  */
-public class AdaptadorLibrosFiltro extends AdaptadorLibros {
+public class FilterBookAdapter extends BookAdapter {
   private Vector<Libro> vectorSinFiltro;// Vector con todos los libros
   private Vector<Integer> indiceFiltro; // Índice en vectorSinFiltro de
   // Cada elemento de vectorLibros
@@ -18,8 +18,8 @@ public class AdaptadorLibrosFiltro extends AdaptadorLibros {
   private boolean novedad = false;      // Si queremos ver solo novedades
   private boolean leido = false;        // Si queremos ver solo leidos
 
-  public AdaptadorLibrosFiltro(Context contexto,
-                               Vector<Libro> vectorLibros) {
+  public FilterBookAdapter(Context contexto,
+                           Vector<Libro> vectorLibros) {
     super(contexto, vectorLibros);
     vectorSinFiltro = vectorLibros;
     recalculaFiltro();

@@ -19,7 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.audiolibros.AdaptadorLibrosFiltro;
+import com.example.audiolibros.FilterBookAdapter;
 import com.example.audiolibros.Aplicacion;
 import com.example.audiolibros.Libro;
 import com.example.audiolibros.MainActivity;
@@ -34,7 +34,7 @@ public class SelectorFragment extends Fragment {
     //        implements SearchView.OnQueryTextListener, SearchView.OnFocusChangeListener {
     private Activity actividad;
     private RecyclerView recyclerView;
-    private AdaptadorLibrosFiltro adaptador;
+    private FilterBookAdapter adaptador;
     private Vector<Libro> vectorLibros;
 
     @Override

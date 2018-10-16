@@ -18,15 +18,15 @@ import java.util.Vector;
 /**
  * Created by Jesús Tomás on 25/01/2016.
  */
-public class AdaptadorLibros extends
-        RecyclerView.Adapter<AdaptadorLibros.ViewHolder> {
+public class BookAdapter extends
+        RecyclerView.Adapter<BookAdapter.ViewHolder> {
     private LayoutInflater inflador;      //Crea Layouts a partir del XML
     protected Vector<Libro> vectorLibros; //Vector con libros a visualizar
     private View.OnClickListener onClickListener;
     private View.OnLongClickListener onLongClickListener;
     private Context contexto;
 
-    public AdaptadorLibros(Context contexto, Vector<Libro> vectorLibros) {
+    public BookAdapter(Context contexto, Vector<Libro> vectorLibros) {
         inflador = (LayoutInflater) contexto
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.vectorLibros = vectorLibros;

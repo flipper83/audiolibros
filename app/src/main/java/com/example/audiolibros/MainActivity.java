@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
   public static final int TAB_ALL = 0;
   public static final int TAB_NEW = 1;
   public static final int TAB_READ = 2;
-  private AdaptadorLibrosFiltro bookAdapter;
+  private FilterBookAdapter bookAdapter;
 
   private FloatingActionButton fabButton;
   private AppBarLayout appBarLayout;
