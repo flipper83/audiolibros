@@ -32,6 +32,7 @@ public class Aplicacion extends Application {
 
     @TestOnly
     public void updateGraph() {
+        adaptador.reset();
         adaptador.setLibros(Libro.ejemploLibros());
     }
 }

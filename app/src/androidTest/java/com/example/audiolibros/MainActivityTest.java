@@ -3,35 +3,22 @@ package com.example.audiolibros;
 import android.app.Activity;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
 
+import com.example.audiolibros.mother.BookMother;
+
 import org.junit.Rule;
 import org.junit.Test;
 
 import java.util.Vector;
 
 import static com.schibsted.spain.barista.interaction.BaristaClickInteractions.clickOn;
+import static com.schibsted.spain.barista.interaction.BaristaDrawerInteractions.openDrawer;
 import static com.schibsted.spain.barista.interaction.BaristaEditTextInteractions.writeTo;
+import static com.schibsted.spain.barista.interaction.BaristaMenuClickInteractions.clickMenu;
 
 public class MainActivityTest extends ScreenshotTest {
 
   @Rule public IntentsTestRule<MainActivity> activityRule =
     new IntentsTestRule<>(MainActivity.class, true, false);
-  private final static Libro ANY_LIBRO = new Libro(
-    "Kappa",
-    "Akutagawa",
-    R.drawable.kappa,
-    "any server",
-    Libro.CATEGORY_XIX,
-    false,
-    false);
-
-  private final static Libro ANY_OTHER_LIBRO = new Libro(
-    "Avecilla",
-    "Alas Clarín, Leopoldo",
-    R.drawable.avecilla,
-    "any server",
-    Libro.CATEGORY_XIX,
-    true,
-    false);
 
   @Test
   public void shouldShowAListTheBooksWhenOpenTheMainActivity() {
@@ -52,12 +39,7 @@ public class MainActivityTest extends ScreenshotTest {
 
   @Test
   public void shouldShowFilterBooksWhenWeWriteAFilteredBook() {
-    Vector<Libro> anyLibros = new Vector<>();
-    anyLibros.add(ANY_LIBRO);
-    anyLibros.add(ANY_OTHER_LIBRO);
-
-    setEjemploLibros(anyLibros);
-
+    givenBooks(BookMother.ANY_LIBRO, BookMother.ANY_OTHER_LIBRO);
     Activity activity = startActivity();
 
     clickOn(R.id.menu_buscar);
@@ -65,6 +47,47 @@ public class MainActivityTest extends ScreenshotTest {
 
     compareScreenshot(activity);
   }
+
+  @Test
+  public void shouldShowNewBooksWhenWePressInNewTab() {
+    givenBooks(BookMother.ANY_NEW_BOOK, BookMother.ANY_LIBRO);
+    Activity activity = startActivity();
+
+    clickOn(R.string.tab_title_new);
+
+    compareScreenshot(activity);
+  }
+
+  @Test
+  public void shouldShowNewBooksWhenWePressInReadTab() {
+    givenBooks(BookMother.ANY_READ_BOOK, BookMother.ANY_LIBRO);
+    Activity activity = startActivity();
+
+    clickOn(R.string.tab_title_read);
+
+    compareScreenshot(activity);
+  }
+
+  @Test
+  public void shouldShowNewBooksWhenWePressInCategory() {
+    givenBooks(BookMother.ANY_THRILLER_BOOK, BookMother.ANY_LIBRO);
+    Activity activity = startActivity();
+
+    openDrawer();
+    clickOn(Libro.G_THRILLER);
+
+    compareScreenshot(activity);
+  }
+
+  private Vector<Libro> givenBooks(Libro... books) {
+    Vector<Libro> anyLibros = new Vector<>();
+    for (Libro book : books) {
+      anyLibros.add(book);
+    }
+    setEjemploLibros(anyLibros);
+    return anyLibros;
+  }
+
 
   private Activity startActivity() {
     return activityRule.launchActivity(null);
