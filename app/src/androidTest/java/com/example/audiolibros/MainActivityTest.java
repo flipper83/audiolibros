@@ -39,7 +39,7 @@ public class MainActivityTest extends ScreenshotTest {
 
   @Test
   public void shouldShowFilterBooksWhenWeWriteAFilteredBook() {
-    givenBooks(BookMother.ANY_LIBRO, BookMother.ANY_OTHER_LIBRO);
+    givenBooks(BookMother.ANY_BOOK, BookMother.ANY_OTHER_BOOK);
     Activity activity = startActivity();
 
     clickOn(R.id.menu_buscar);
@@ -50,7 +50,7 @@ public class MainActivityTest extends ScreenshotTest {
 
   @Test
   public void shouldShowNewBooksWhenWePressInNewTab() {
-    givenBooks(BookMother.ANY_NEW_BOOK, BookMother.ANY_LIBRO);
+    givenBooks(BookMother.ANY_NEW_BOOK, BookMother.ANY_BOOK);
     Activity activity = startActivity();
 
     clickOn(R.string.tab_title_new);
@@ -60,7 +60,7 @@ public class MainActivityTest extends ScreenshotTest {
 
   @Test
   public void shouldShowNewBooksWhenWePressInReadTab() {
-    givenBooks(BookMother.ANY_READ_BOOK, BookMother.ANY_LIBRO);
+    givenBooks(BookMother.ANY_READ_BOOK, BookMother.ANY_BOOK);
     Activity activity = startActivity();
 
     clickOn(R.string.tab_title_read);
@@ -70,7 +70,7 @@ public class MainActivityTest extends ScreenshotTest {
 
   @Test
   public void shouldShowNewBooksWhenWePressInCategory() {
-    givenBooks(BookMother.ANY_THRILLER_BOOK, BookMother.ANY_LIBRO);
+    givenBooks(BookMother.ANY_THRILLER_BOOK, BookMother.ANY_BOOK);
     Activity activity = startActivity();
 
     openDrawer();

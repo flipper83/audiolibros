@@ -4,7 +4,7 @@ import com.example.audiolibros.Libro;
 import com.example.audiolibros.R;
 
 public class BookMother {
-  public final static Libro ANY_LIBRO = new Libro(
+  public final static Libro ANY_BOOK = new Libro(
     "Kappa",
     "Akutagawa",
     R.drawable.kappa,
@@ -13,7 +13,7 @@ public class BookMother {
     false,
     false);
 
-  public final static Libro ANY_OTHER_LIBRO = new Libro(
+  public final static Libro ANY_OTHER_BOOK = new Libro(
     "Avecilla",
     "Alas Clarín, Leopoldo",
     R.drawable.avecilla,
