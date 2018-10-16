@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity
   }
 
   private void showCategory(String s) {
-    bookAdapter.setGenero(s);
+    bookAdapter.setGender(s);
     bookAdapter.notifyDataSetChanged();
   }
 
@@ -281,18 +281,18 @@ public class MainActivity extends AppCompatActivity
   };
 
   private void showReadBooks() {
-    bookAdapter.setNovedad(false);
-    bookAdapter.setLeido(true);
+    bookAdapter.setNewBook(false);
+    bookAdapter.setRead(true);
   }
 
   private void showNewBooks() {
-    bookAdapter.setNovedad(true);
-    bookAdapter.setLeido(false);
+    bookAdapter.setNewBook(true);
+    bookAdapter.setRead(false);
   }
 
   private void showAllBooks() {
-    bookAdapter.setNovedad(false);
-    bookAdapter.setLeido(false);
+    bookAdapter.setNewBook(false);
+    bookAdapter.setRead(false);
   }
 
 }

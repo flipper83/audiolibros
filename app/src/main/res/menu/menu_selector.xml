@@ -7,7 +7,7 @@
         android:icon="@android:drawable/ic_menu_set_as"
         android:orderInCategory="100"
         app:showAsAction="ifRoom|withText"
-        android:title="Último leido"/>
+        android:title="Último read"/>
     <item
         android:id="@+id/menu_buscar"
         app:actionViewClass="android.support.v7.widget.SearchView"

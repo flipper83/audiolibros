@@ -102,7 +102,7 @@ public class SelectorFragment extends Fragment {
                                         .setAction("SI", new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
-                                                adaptador.borrar(id);
+                                                adaptador.remove(id);
                                                 //adaptador.notifyDataSetChanged();
                                                 adaptador.notifyItemRemoved(id);
                                             }
@@ -111,7 +111,7 @@ public class SelectorFragment extends Fragment {
                                 break;
                             case 2: //Insertar
                                 int posicion = recyclerView.getChildLayoutPosition(v);
-                                adaptador.insertar((Libro) adaptador.getItem(posicion));
+                                adaptador.insert((Libro) adaptador.getItem(posicion));
                                 //adaptador.notifyDataSetChanged();
                                 adaptador.notifyItemInserted(0);
                                 Snackbar.make(v, "Libro insertado", Snackbar.LENGTH_INDEFINITE)
@@ -147,7 +147,7 @@ public class SelectorFragment extends Fragment {
                 new SearchView.OnQueryTextListener() {
                     @Override
                     public boolean onQueryTextChange(String query) {
-                        adaptador.setBusqueda(query);
+                        adaptador.setSearchKeyword(query);
                         adaptador.notifyDataSetChanged();
                         return false;
                     }
@@ -163,7 +163,7 @@ public class SelectorFragment extends Fragment {
                 new MenuItemCompat.OnActionExpandListener() {
                     @Override
                     public boolean onMenuItemActionCollapse(MenuItem item) {
-                        adaptador.setBusqueda("");
+                        adaptador.setSearchKeyword("");
                         adaptador.notifyDataSetChanged();
                         return true;  // Para permitir cierre
                     }
@@ -193,7 +193,7 @@ public class SelectorFragment extends Fragment {
 
    /* @Override
     public boolean onQueryTextChange(String query) {
-        adaptador.setBusqueda(query);
+        adaptador.setSearchKeyword(query);
         adaptador.notifyDataSetChanged();
         return false;
     }
