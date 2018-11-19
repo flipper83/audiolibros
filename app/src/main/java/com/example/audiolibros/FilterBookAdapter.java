@@ -112,7 +112,7 @@ public class FilterBookAdapter extends
   }
 
   public void recalculateFilter() {
-    listBooks = new Vector<>();
+    listBooks.clear();
     filterIndex = new Vector<>();
     for (int i = 0; i < originalListOfBooks.size(); i++) {
       Libro book = originalListOfBooks.elementAt(i);
